@@ -9,9 +9,6 @@
         $(function() {
             app.mobileApp = new kendo.mobile.Application(document.body, {
 
-                // comment out the following line to get a UI which matches the look
-                // and feel of the operating system
-                skin: 'flat',
                 // the application needs to know which view to load first
                 initial: 'components/home/view.html',
                 statusBarStyle: 'black-translucent'
