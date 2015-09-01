@@ -31,7 +31,7 @@ app.dataListView = kendo.observable({
         dataSourceOptions = {
             type: 'everlive',
             transport: {
-                typeName: 'Activities',
+                typeName: 'dbo_Bills',
                 dataProvider: dataProvider
             },
 
@@ -46,8 +46,12 @@ app.dataListView = kendo.observable({
             schema: {
                 model: {
                     fields: {
-                        'Likes': {
-                            field: 'Likes',
+                        'Title': {
+                            field: 'Title',
+                            defaultValue: ''
+                        },
+                        'Description': {
+                            field: 'Description',
                             defaultValue: ''
                         },
                     }
@@ -64,8 +68,8 @@ app.dataListView = kendo.observable({
                 var item = e.view.params.uid,
                     dataSource = dataListViewModel.get('dataSource'),
                     itemModel = dataSource.getByUid(item);
-                if (!itemModel.Likes) {
-                    itemModel.Likes = String.fromCharCode(160);
+                if (!itemModel.Title) {
+                    itemModel.Title = String.fromCharCode(160);
                 }
                 dataListViewModel.set('currentItem', itemModel);
             },
